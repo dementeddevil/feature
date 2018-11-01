@@ -53,10 +53,10 @@ namespace FeatureFlags.Library
         /// <param name="user">The user to check</param>
         /// <param name="group">The group to check</param>
         /// <param name="url">The url part to check</param>
-        /// <param name="IsInternal">'true' if the request is internal</param>
+        /// <param name="isInternal">'true' if the request is internal</param>
         /// <param name="isAdmin">'true' if the request is for an admin</param>
         /// <returns></returns>
-        public static bool IsEnabled(FeatureFlag rule, string user = "", string group = "", string url = "", bool IsInternal = false, bool isAdmin = false)
+        public static bool IsEnabled(FeatureFlag rule, string user = "", string group = "", string url = "", bool isInternal = false, bool isAdmin = false)
         {
             //  By default, the rule is disabled...
             bool retval = false;
@@ -96,7 +96,7 @@ namespace FeatureFlags.Library
                 }
 
                 //  See if we're internal and the flag is for internal users:
-                if (IsInternal && rule.Internal)
+                if (isInternal && rule.Internal)
                 {
                     retval = true;
                 }

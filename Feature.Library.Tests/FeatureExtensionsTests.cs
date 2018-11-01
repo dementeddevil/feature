@@ -1,14 +1,14 @@
 ﻿using FeatureFlags.Library;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NFluent;
 using System.Collections.Generic;
+using NUnit.Framework;
 
 namespace FeatureExtensionTesting
 {
-    [TestClass]
+    [TestFixture]
     public class FeatureExtensionsTests
-    {     
-        [TestMethod]
+    {
+        [Test]
         public void IsFeatureEnablingString_ValidTestString_ReturnsCorrectly()
         {
             //  Arrange
@@ -41,7 +41,7 @@ namespace FeatureExtensionTesting
             }            
         }
 
-        [TestMethod]
+        [Test]
         public void ToFeatureFlag_ValidRuleString_ParsesCorrectly()
         {
             //  Arrange
@@ -66,7 +66,7 @@ namespace FeatureExtensionTesting
             }
         }
 
-        [TestMethod]
+        [Test]
         public void ParseFeatureFlag_NullRuleString_ParsesCorrectly()
         {
             //  Arrange
@@ -80,7 +80,7 @@ namespace FeatureExtensionTesting
             Check.That(retval).HasFieldsWithSameValues(expectedRule);
         }
 
-        [TestMethod]
+        [Test]
         public void ToJSON_ValidFeatureFlag_SerializesCorrectly()
         {
             //  Arrange
